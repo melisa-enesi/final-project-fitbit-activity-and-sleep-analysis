@@ -112,3 +112,5 @@ This dataset is clean and detailed, making it a great fir for exploring relation
     This question explores whether higher energy expenditure during the day is associated with longer or shorter sleep durations at night. By comparing daily calorie burn and total minutes asleep, the analysis can reveal patterns in how physical activity influences rest and recovery. Understanding this relationship can also provide insights into how lifestyle habits impact overall well-being.
 
 2.  **Which type of activity—very active, moderately active, or lightly active—has the strongest impact on total daily calorie burn?**
+
+    This question explores how different intensities of movement contribute to overall energy expenditure. While it seems intuitive that very active minutes would burn the most calories, the data may reveal more complex patterns. Because most users spend far more time in light or moderate activity, these lower-intensity movements could play a larger role in total calorie output than expected. Analyzing these patterns will help identify which types of activity are most influential in overall daily energy use.
