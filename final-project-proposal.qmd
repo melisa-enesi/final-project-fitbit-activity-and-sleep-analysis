@@ -102,3 +102,5 @@ The dataset includes daily activity records for 30 users over several months. It
 -   hourlyCalories_merged.csv
 
 -   minuteSleep_merged.csv
+
+This dataset is clean and detailed, making it a great fir for exploring relationships among physical activity, calories burned, and sleep behavior.
