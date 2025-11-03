@@ -1,6 +1,5 @@
 ---
 title: "Final Project Proposal"
-date: "Fall 2025"
 author: "Melisa Enesi"
 format: html
 editor: visual
@@ -8,7 +7,7 @@ editor: visual
 
 ### Project Title
 
-Predicting Daily Step Counts from Fitness Tracker Data.
+Exploring Activity and Sleep Patterns Using Fitbit Data.
 
 ### Data Source
 
