@@ -1,0 +1,10 @@
+---
+title: "Final Project Proposal"
+author: "Melisa Enesi"
+format: html
+editor: visual
+---
+
+## Project Title
+
+Predicting Daily Step Counts from Fitness Tracker Data.
