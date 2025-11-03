@@ -5,8 +5,8 @@ format: html
 editor: visual
 ---
 
-## Project Title
+### Project Title
 
-Predicting Daily Step Counts from Fitness Tracker Data.
+*Predicting Daily Step Counts from Fitness Tracker Data.*
 
-TEST-LINE Sun, Nov  2, 2025 10:28:02 PM
+### Data Source
