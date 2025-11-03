@@ -1,5 +1,6 @@
 ---
 title: "Final Project Proposal"
+date: "Fall 2025"
 author: "Melisa Enesi"
 format: html
 editor: visual
@@ -103,7 +104,7 @@ The dataset includes daily activity records for 30 users over several months. It
 
 -   minuteSleep_merged.csv
 
-This dataset is clean and detailed, making it a great fir for exploring relationships among physical activity, calories burned, and sleep behavior.
+This dataset is clean and detailed, making it a great fit for exploring relationships among physical activity, calories burned, and sleep behavior.
 
 ### Research Questions
 
