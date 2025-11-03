@@ -10,3 +10,7 @@ editor: visual
 *Predicting Daily Step Counts from Fitness Tracker Data.*
 
 ### Data Source
+
+I plan to use a publicly available **Fitbit Fitness Tracker dataset** from Kaggle (<https://www.kaggle.com/datasets/arashnic/fitbit>).
+
+The dataset includes daily activity records for 30 users over several months, with variables such as:
