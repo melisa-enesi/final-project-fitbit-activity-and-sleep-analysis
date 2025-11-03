@@ -7,7 +7,7 @@ editor: visual
 
 ### Project Title
 
-*Predicting Daily Step Counts from Fitness Tracker Data.*
+Predicting Daily Step Counts from Fitness Tracker Data.
 
 ### Data Source
 
@@ -130,3 +130,15 @@ By analyzing Fitbit data, I want to see how lifestyle factors like activity and 
 -   Use multiple regression and visualization techniques to highlight calorie efficiency across activity types.\
 -   Develop an **interactive R Shiny dashboard** that allows users to explore relationships between activity levels, calories burned, and sleep duration. The dashboard will include dynamic visualizations, filters, and summary statistics to make the findings more accessible and engaging.\
 -   Present the final analysis and dashboard through a well-documented Quarto report that integrates code, visuals, and written interpretation.
+
+#### Expected Outcomes
+
+-   Visualizations that reveal how energy expenditure during the day influences total sleep duration.\
+-   Comparative analysis showing which activity intensity contributes most strongly to total daily calories burned.\
+-   An interactive R Shiny dashboard that enables exploration of daily behavior patterns and their relationships to energy expenditure and sleep.\
+-   Quantitative insights into how different forms of physical activity and rest interact to shape overall health behavior.\
+-   A clear, reproducible workflow that demonstrates effective use of R, Quarto, and Shiny for real-world data analysis.
+
+#### Proposal Meeting Preparation
+
+I will bring this short summary and be prepared to discuss the dataset, variables, and updated research questions during the November 14 proposal meeting.
