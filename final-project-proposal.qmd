@@ -114,3 +114,9 @@ This dataset is clean and detailed, making it a great fir for exploring relation
 2.  **Which type of activity—very active, moderately active, or lightly active—has the strongest impact on total daily calorie burn?**
 
     This question explores how different intensities of movement contribute to overall energy expenditure. While it seems intuitive that very active minutes would burn the most calories, the data may reveal more complex patterns. Because most users spend far more time in light or moderate activity, these lower-intensity movements could play a larger role in total calorie output than expected. Analyzing these patterns will help identify which types of activity are most influential in overall daily energy use.
+
+### Motivation
+
+I’ve always been interested in how data can reflect real human habits, especially when it comes to health and daily life. I started wearing a fitness tracker last year, and I noticed how much information it collects (steps, calories, heart rate, even sleep patterns). It made me curious about what those numbers actually mean beyond the app’s simple charts.
+
+By analyzing Fitbit data, I want to see how lifestyle factors like activity and sleep connect to overall well-being. This project combines my personal interest in health with my growing skills in data science, giving me the chance to interpret real-world data through visualization and statistical analysis.
