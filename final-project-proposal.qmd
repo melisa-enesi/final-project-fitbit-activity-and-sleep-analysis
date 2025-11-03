@@ -120,3 +120,13 @@ This dataset is clean and detailed, making it a great fir for exploring relation
 I’ve always been interested in how data can reflect real human habits, especially when it comes to health and daily life. I started wearing a fitness tracker last year, and I noticed how much information it collects (steps, calories, heart rate, even sleep patterns). It made me curious about what those numbers actually mean beyond the app’s simple charts.
 
 By analyzing Fitbit data, I want to see how lifestyle factors like activity and sleep connect to overall well-being. This project combines my personal interest in health with my growing skills in data science, giving me the chance to interpret real-world data through visualization and statistical analysis.
+
+#### Approach and Methods
+
+-   Perform **exploratory data analysis (EDA)** in R using the `tidyverse` packages (`ggplot2`, `dplyr`, `readr`) to examine relationships between calories burned, sleep duration, and activity intensity.\
+-   Create visualizations such as scatterplots, boxplots, and correlation plots to explore how daily energy expenditure relates to total time asleep and how different activity types contribute to overall calorie burn.\
+-   For the first research question, analyze the relationship between `Calories` and `TotalMinutesAsleep` using correlation and regression analysis to determine whether higher daily calorie burn corresponds to longer or shorter sleep durations.\
+-   For the second research question, compare the effects of `VeryActiveMinutes`, `FairlyActiveMinutes`, and `LightlyActiveMinutes` on `Calories` to identify which intensity level has the strongest impact on total daily energy use.\
+-   Use multiple regression and visualization techniques to highlight calorie efficiency across activity types.\
+-   Develop an **interactive R Shiny dashboard** that allows users to explore relationships between activity levels, calories burned, and sleep duration. The dashboard will include dynamic visualizations, filters, and summary statistics to make the findings more accessible and engaging.\
+-   Present the final analysis and dashboard through a well-documented Quarto report that integrates code, visuals, and written interpretation.
