@@ -13,4 +13,92 @@ editor: visual
 
 I plan to use a publicly available **Fitbit Fitness Tracker dataset** from Kaggle (<https://www.kaggle.com/datasets/arashnic/fitbit>).
 
-The dataset includes daily activity records for 30 users over several months, with variables such as:
+The dataset includes daily activity records for 30 users over several months. It contains multiple types of data, including daily activity metrics, sleep logs, weight information, and time-based activity summaries. The main variables are organized below by category:
+
+#### Daily Activity Data
+
+-   `Id`: unique user ID
+
+-   `ActivityDate`: date of record
+
+-   `TotalSteps`: total number of steps taken per day
+
+-   `TotalDistance`: total distance traveled (in miles)
+
+-   `TrackerDistance`: distance recorded by the Fitbit device
+
+-   `LoggedActivitiesDistance`: manually logged distance
+
+-   `VeryActiveDistance`: distance traveled during very active minutes
+
+-   `ModeratelyActiveDistance`: distance traveled during moderate activity
+
+-   `LightActiveDistance`: distance traveled during light activity
+
+-   `SedentaryActiveDistance`: distance during sedentary activity (often `0`)
+
+-   `VeryActiveMinutes`: number of minutes spent in very active activity
+
+-   `FairlyActiveMinutes`: number of minutes spent in moderate activity
+
+-   `LightlyActiveMinutes`: number of minutes spent in light activity
+
+-   `SedentaryMinutes`: number of minutes spent sedentary
+
+-   `Calories`: total calories burned
+
+#### Sleep Data
+
+-   `Id`: user ID (same as above)
+
+-   `SleepDay`: date of sleep record
+
+-   `TotalSleepRecords`: number of distinct sleep logs that night
+
+-   `TotalMinutesAsleep`: total minutes spent asleep
+
+-   `TotalTimeInBed`: total minutes in bed (asleep + awake)
+
+#### Weight and BMI Data
+
+-   `Id`: user ID
+
+-   `Date`: date of log
+
+-   `WeightKg`: weight in kilograms
+
+-   `WeightPounds`: weight in pounds
+
+-   `Fat`: body fat percentage (if available)
+
+-   `BMI`: body mass index
+
+-   `IsManualReport`: whether the weight entry was manually logged
+
+-   `LogId`: unique weight log identifier
+
+#### Hourly and Minute-Level Data
+
+-   `ActivityHour`: timestamp for each hour
+
+-   `StepTotal`: total steps recorded during that hour
+
+-   `Calories`: calories burned during that hour
+
+-   `ActivityMinute`: timestamp for each minute
+
+-   `Intensity`: activity intensity value for that minute
+
+#### Main Datasets:
+
+-   dailyActivity_merged.csv
+
+-   sleepDay_merged.csv
+
+-   weightLogInfo_merged.csv
+
+-   hourlySteps_merged.csv
+
+-   hourlyCalories_merged.csv
+
+-   minuteSleep_merged.csv
