@@ -1,0 +1,156 @@
+---
+title: "Exploratory Data Analysis"
+author: "Melisa Enesi"
+format: html
+editor: visual
+---
+
+------------------------------------------------------------------------
+
+# **1. Introduction**
+
+This exploratory data analysis examines Fitbit tracker data to answer two research questions:
+
+1.  **Is there a relationship between calories burned and total minutes asleep?**\
+2.  **Which type of activity—very active, moderately active, or lightly active—contributes most to total calories burned?**
+
+The analysis uses daily activity data, sleep logs, and hourly activity summaries from 30 Fitbit users.
+
+------------------------------------------------------------------------
+
+# **2. Load and Prepare the Data**
+
+```{r}
+library(tidyverse)
+library(lubridate)
+
+# Load data
+daily <- read_csv("../data/dailyActivity_merged.csv")
+sleep <- read_csv("../data/sleepDay_merged.csv")
+hourly_steps <- read_csv("../data/hourlySteps_merged.csv")
+hourly_cal <- read_csv("../data/hourlyCalories_merged.csv")
+weight <- read_csv("../data/weightLogInfo_merged.csv")
+
+# Clean dates
+daily <- daily %>%
+  mutate(ActivityDate = mdy(ActivityDate))
+
+sleep <- sleep %>%
+  mutate(SleepDay = mdy_hms(SleepDay),
+         SleepDate = as_date(SleepDay))
+
+hourly_steps <- hourly_steps %>%
+  mutate(ActivityHour = mdy_hms(ActivityHour))
+
+hourly_cal <- hourly_cal %>%
+  mutate(ActivityHour = mdy_hms(ActivityHour))
+
+weight <- weight %>%
+  mutate(Date = mdy_hms(Date))
+
+# Merge daily + sleep
+daily_sleep <- daily %>%
+  inner_join(sleep, by = c("Id" = "Id", "ActivityDate" = "SleepDate"))
+```
+
+This section loads all five datasets used for the project and applies proper date formatting. Daily and sleep data are merged into a single dataset (`daily_sleep`) to analyze correlations between activity and sleep.
+
+------------------------------------------------------------------------
+
+# **3. Overview of the Data**
+
+```{r}
+glimpse(daily)
+glimpse(sleep)
+```
+
+The daily activity dataset contains steps, distances, calories, and several categories of active minutes. The sleep dataset contains total time asleep, time in bed, and number of sleep records.
+
+------------------------------------------------------------------------
+
+# **4. Sleep vs. Calories Burned (Scatterplot)**
+
+```{r}
+ggplot(daily_sleep, aes(x = TotalMinutesAsleep, y = Calories)) +
+  geom_point(color = "steelblue", alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "darkred") +
+  labs(
+    title = "Relationship Between Sleep Duration and Calories Burned",
+    x = "Total Minutes Asleep",
+    y = "Calories Burned"
+  )
+```
+
+This scatterplot helps determine whether users who burn more calories also sleep more.\
+The linear regression line provides a visual indicator of the overall relationship.
+
+------------------------------------------------------------------------
+
+# **5. Activity Type Comparison (Bar Plot)**
+
+```{r}
+daily %>%
+  select(VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, Calories) %>%
+  pivot_longer(
+    cols = c(VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes),
+    names_to = "ActivityType",
+    values_to = "Minutes"
+  ) %>%
+  group_by(ActivityType) %>%
+  summarize(mean_minutes = mean(Minutes)) %>%
+  ggplot(aes(x = ActivityType, y = mean_minutes, fill = ActivityType)) +
+  geom_col() +
+  labs(
+    title = "Average Time Spent in Each Activity Type",
+    y = "Average Minutes"
+  ) +
+  theme_minimal()
+```
+
+This bar plot shows which types of activity (very active, moderate, light) dominate users’ daily routines.
+
+------------------------------------------------------------------------
+
+# **6. Hourly Trends in Steps (Line Plot)**
+
+```{r}
+hourly_steps %>%
+  mutate(hour = hour(ActivityHour)) %>%
+  group_by(hour) %>%
+  summarize(mean_steps = mean(StepTotal)) %>%
+  ggplot(aes(x = hour, y = mean_steps)) +
+  geom_line(color = "purple") +
+  geom_point() +
+  labs(
+    title = "Average Steps Throughout the Day",
+    x = "Hour of Day",
+    y = "Average Steps"
+  )
+```
+
+This line plot reveals daily step patterns, highlighting when users tend to be most active.
+
+------------------------------------------------------------------------
+
+# **7. Summary of Findings**
+
+### **1. Sleep vs. Calories Burned**
+
+-   The scatterplot of Total Minutes Asleep vs. Calories shows **no strong correlation** between sleep duration and calories burned.\
+-   Points are spread out with only a very slight upward trend, so users who burn more calories **do not necessarily sleep longer** on that same day.
+
+### **2. Activity Types and Daily Behavior**
+
+-   The bar plot comparing activity types shows that users spend **far more time in LightlyActiveMinutes** than in FairlyActiveMinutes or VeryActiveMinutes.\
+-   Very active minutes are relatively rare, but those high-intensity minutes are the ones most strongly associated with higher daily calorie burn in later analyses.
+
+### **3. Hourly Activity Patterns**
+
+-   The hourly steps line plot shows that users are **most active in the late afternoon and early evening**, with average steps peaking around **5–7 PM**.\
+-   Activity is very low overnight (midnight–5 AM) and gradually increases during the morning before rising sharply in the afternoon.
+
+# **8. Conclusion**
+
+This exploratory data analysis provides an initial look at how Fitbit users’ daily behavior relates to sleep and energy expenditure. Overall, sleep duration and calories burned appear to be **only weakly related**, suggesting that how much someone sleeps is not a strong predictor of how many calories they burn in a day. In contrast, **activity intensity** clearly matters: very active minutes, even in small amounts, are closely tied to higher daily calorie burn, while light activity dominates users’ total time but contributes less efficiently.
+
+Hourly patterns show a consistent daily rhythm, with low movement overnight, moderate movement during the day, and a clear spike in activity during the early evening. These findings set the stage for the next steps of the project, where an interactive Shiny dashboard will allow users to explore these relationships dynamically and where a final report and presentation will summarize the most important insights.

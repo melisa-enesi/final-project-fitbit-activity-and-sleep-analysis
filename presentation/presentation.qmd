@@ -1,0 +1,193 @@
+---
+title: "Fitbit Activity & Sleep Dashboard"
+author: "Melisa Enesi"
+format: revealjs
+editor: visual
+---
+
+## About This Project
+
+-   This presentation summarizes my **Fitbit Activity & Sleep Dashboard** built in R Shiny.
+-   Data comes from a public **Fitbit dataset (Kaggle)**.
+-   Includes:
+    -   Daily activity data\
+    -   Sleep data\
+    -   Hourly step + calorie data\
+-   Main research questions:
+    1.  **How is sleep related to calories burned?**
+    2.  **How does daily activity vary across users and across the day?**
+
+# Creating Slides
+
+## Goal of This Dashboard
+
+-   To visually explore relationships between:
+    -   Sleep duration\
+    -   Calories burned\
+    -   Step counts\
+    -   Activity patterns\
+-   To build an **interactive dashboard** using:
+    -   Shiny\
+    -   Tidyverse\
+    -   Leaflet\
+    -   ggplot2
+
+## Data Used
+
+-   **dailyActivity_merged.csv**
+    -   Total steps, calories, active minutes\
+-   **sleepDay_merged.csv**
+    -   Minutes asleep, time in bed\
+-   **Hourly datasets**
+    -   Steps and calories per hour\
+-   Data cleaning:
+    -   Converted dates\
+    -   Joined daily activity + sleep tables\
+    -   Calculated averages & summaries
+
+## Dashboard Tabs
+
+-   Sleep vs Calories\
+-   Daily Activity\
+-   Hourly Patterns\
+-   Sleep Details\
+-   Each tab includes:
+    -   Filters\
+    -   Sliders\
+    -   Dynamic plots\
+    -   Explanatory text
+
+# Slide Content
+
+## Research Question 1
+
+### How is sleep related to calories burned?
+
+### Sleep vs Calories Scatterplot
+
+![Sleep vs Calories](images/Screenshot_2025-12-02_005816.png)
+
+-   Slight upward trend\
+-   More sleep → slightly more calories burned\
+-   But the relationship is **weak**\
+-   Many days with similar sleep but different calorie output
+
+## Sleep Quality & Consistency
+
+![Sleep Quality + Sleep Calendar](images/Screenshot_2025-12-02_005919.png)
+
+-   Sleep quality plot:
+    -   Hours asleep falls slightly below hours in bed\
+    -   Shows **realistic inefficiencies** in sleep\
+-   Sleep consistency calendar:
+    -   Displays weekly patterns\
+    -   Sleep duration is **fairly stable** overall
+
+## Interpretation (Q1)
+
+-   Weak positive association between sleep and calories burned\
+-   Sleep efficiency is moderate\
+-   Most users sleep for a large portion of their time in bed\
+-   Sleep alone is **not a major predictor** of calorie burn
+
+# Slide Content
+
+## Research Question 2
+
+### How do daily activity patterns vary?
+
+### Daily Activity Overview
+
+![Daily Activity](images/Screenshot_2025-12-02_005831.png)
+
+-   Lightly Active minutes dominate\
+-   Fairly Active + Very Active minutes are much lower\
+-   Step leaderboard:
+    -   Users vary widely in total steps per day\
+-   Calories vs Steps:
+    -   Strong positive relationship\
+    -   More steps = more calories burned
+
+## User Consistency in Steps
+
+![User Consistency](images/Screenshot_2025-12-02_005845.png)
+
+-   Coefficient of variation (sd/mean steps)\
+-   Shows day-to-day consistency\
+-   Many users vary significantly from one day to the next\
+-   A few users have very stable routines
+
+## Hourly Activity Patterns
+
+![Hourly Patterns](images/Screenshot_2025-12-02_005907.png)
+
+-   Overnight activity is nearly zero\
+-   Activity rises in the morning\
+-   Peaks midday and early evening\
+-   Weekend midday peaks are **slightly higher**\
+-   Indicates flexible schedules on weekends
+
+# Slide Customization
+
+## Interpretation (Q2)
+
+-   Users spend most of their time in **light** physical activity\
+-   Step counts vary widely\
+-   Strong time-of-day patterns seen across all users\
+-   Weekends show slightly higher midday movement\
+-   Activity levels are not consistent day to day
+
+## Project Conclusions
+
+-   **Sleep vs Calories**
+    -   Weak positive relationship\
+    -   Sleep is fairly consistent but not a strong predictor
+-   **Daily Activity**
+    -   Light activity dominates\
+    -   Users differ widely in step counts\
+    -   Strong daily cycles
+-   **Dashboard**
+    -   Allows interactive exploration\
+    -   Useful for comparing users and patterns
+
+## Limitations
+
+-   Small user sample\
+-   Short tracking period (Mar–May)\
+-   No demographic information\
+-   Data may not represent entire populations
+
+## Future Improvements
+
+-   Add demographic filters\
+-   Integrate more detailed workout logs\
+-   Predict calorie expenditure with models\
+-   Add personalized health recommendations
+
+# Conclusion
+
+## Summary
+
+This presentation covered:
+
+-   The Fitbit dataset\
+-   Data cleaning + integration\
+-   Dashboard tabs and functionality\
+-   Key insights from:
+    -   Sleep vs Calories\
+    -   Daily Activity\
+    -   Hourly Patterns\
+    -   Sleep Details\
+-   Limitations and future work
+
+## AI Usage Disclosure
+
+- I used AI tools (ChatGPT) **strictly for support**, including:
+    - Debugging issues with RMarkdown, Quarto, and image rendering  
+    - Clarifying errors and understanding file path problems  
+    - Getting guidance on how to structure my presentation and report  
+    - Receiving explanations of Shiny components, data joins, and plotting logic  
+
+## THANK YOU!!!
+
+Questions?

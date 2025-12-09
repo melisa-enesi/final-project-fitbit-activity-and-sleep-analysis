@@ -1,0 +1,191 @@
+---
+title: "Fitbit Activity & Sleep Analysis"
+author: "Melisa Enesi"
+date: "2025-12-02"
+output: html_document
+---
+
+# Introduction
+
+For this project, I analyzed a sample Fitbit dataset from Kaggle that contains several weeks of activity and sleep data for a small group of users (mainly between March and May). Each observation represents either a full day or a single hour of activity for a Fitbit user. The dataset includes total daily steps, calories burned, minutes spent in different activity intensities, hours asleep, and time in bed.
+
+To explore these patterns, I created an interactive **R Shiny dashboard** that includes the following tabs:
+
+- Sleep vs Calories  
+- Daily Activity  
+- Hourly Patterns  
+- Sleep Details  
+
+My exploratory data analysis focused on two main questions:
+
+1. **How is sleep related to calories burned?**  
+2. **How do daily activity levels vary across users and across the day?**
+
+This written summary describes the data, displays the corresponding visualizations, and explains the patterns revealed by the Shiny app.
+
+---
+
+# Data Overview
+
+Two main tables were used:
+
+### dailyActivity_merged.csv  
+
+Contains one daily record per user, including:  
+
+- TotalSteps  
+- Calories  
+- VeryActiveMinutes  
+- FairlyActiveMinutes  
+- LightlyActiveMinutes  
+
+### sleepDay_merged.csv  
+
+Contains one nightly record per user, including:  
+
+- TotalMinutesAsleep  
+- TotalTimeInBed  
+
+These datasets were merged by user ID and date to analyze sleep and activity on the same day. I also used hourly activity tables for the Hourly Patterns tab.
+
+---
+
+# Question 1: How is sleep related to calories burned?
+
+## Sleep vs Calories Plot
+
+On the Sleep vs Calories tab, I created a scatter plot comparing **Total Minutes Asleep** (x-axis) with **Calories Burned** (y-axis) for each user-day. A linear regression line shows the overall trend.
+
+The slope of the line is slightly positive, meaning people who sleep more tend to burn a bit more calories. However, the points are widely scattered, so sleep alone is not a strong predictor of calorie burn.
+
+### Screenshot: Sleep vs Calories  
+
+![](images/Screenshot_2025-12-02_005816.png)
+
+---
+
+## Sleep Quality Dashboard
+
+This plot compares **Hours in Bed** with **Hours Asleep**, showing how efficiently users sleep. A diagonal line represents “perfect efficiency,” where all time in bed is spent asleep.
+
+Most points fall slightly below the diagonal, meaning users usually sleep for most—but not all—of the time they spend in bed. This indicates **fair sleep efficiency**.
+
+## Sleep Consistency Calendar
+
+The sleep calendar shows hours asleep for a selected user across several weeks. Darker tiles represent longer sleep. Most users show moderate consistency with normal fluctuations across days.
+
+### Screenshot: Sleep Quality & Sleep Consistency  
+
+![](images/Screenshot_2025-12-02_005919.png)
+
+---
+
+## Interpretation for Question 1
+
+Overall, the sleep-related visualizations show that:
+
+- There is a **weak positive relationship** between sleep duration and calories burned.  
+- Users generally sleep efficiently, though not perfectly.  
+- Sleep duration remains fairly stable across weeks, with normal night-to-night variation.
+
+Sleep does appear to contribute slightly to calorie burn, but many other factors—such as exercise intensity and daily routines—likely play much larger roles.
+
+---
+
+# Question 2: How do daily activity levels vary across users and throughout the day?
+
+## Average Minutes by Activity Type
+
+This bar chart summarizes the average time per day users spend in different activity levels.
+
+Findings:
+
+- Users spend **most of their time** in **Lightly Active** minutes.  
+- **Fairly Active** and **Very Active** minutes are much lower.  
+
+This reflects typical daily movement patterns: lots of light walking or routine tasks, and much less vigorous exercise.
+
+## Step Leaderboard & Calories vs Steps Efficiency
+
+The Step Leaderboard ranks users by their average daily steps. Some users walk over 12,000 steps per day, while others walk significantly less.
+
+The Calories vs Steps plot shows a strong positive trend: users who take more steps burn more calories.
+
+### Screenshot: Daily Activity Tab  
+
+![](images/Screenshot_2025-12-02_005831.png)
+
+---
+
+## User Consistency in Daily Steps
+
+The consistency plot uses the coefficient of variation (standard deviation / mean) to measure how stable users’ daily step counts are.
+
+- Low values indicate highly consistent daily step habits.  
+- High values indicate large day-to-day changes.  
+
+Many users fall in the moderate-to-high range, meaning their step counts vary significantly from day to day.
+
+### Screenshot: User Consistency  
+
+![](images/Screenshot_2025-12-02_005845.png)
+
+---
+
+## Hourly Patterns: When does activity peak?
+
+The Hourly Patterns tab includes two key visualizations:
+
+### Average Activity by Hour of Day
+
+This line plot shows the typical daily movement pattern:
+
+- Very low activity overnight  
+- A sharp increase in the morning  
+- Peaks around midday to early evening  
+- A decline again at night  
+
+### Weekday vs Weekend Activity
+
+The second plot compares average hourly steps on weekdays and weekends. The shapes are similar, but weekends usually have slightly higher midday peaks, suggesting people walk more when schedules are flexible.
+
+### Screenshot: Hourly Patterns  
+
+![](images/Screenshot_2025-12-02_005907.png)
+
+---
+
+# Interpretation for Question 2
+
+Daily activity patterns reveal that:
+
+- Light activity dominates most users’ days.  
+- Very active minutes are limited across the dataset.  
+- Users vary widely in overall step count.  
+- Many users show inconsistent day-to-day activity.  
+- Activity follows strong time-of-day cycles.  
+- Weekends often show higher midday movement.
+
+These patterns match typical human routines involving work, school, commuting, and free-time habits.
+
+---
+
+# Conclusions
+
+Using the Fitbit dataset and my Shiny dashboard, I explored two main questions:
+
+### 1. How is sleep related to calories burned?
+
+- Sleep and calories burned have a weak positive relationship.  
+- Users generally sleep efficiently.  
+- Sleep duration shows moderate stability across weeks.  
+
+### 2. How does daily activity vary?
+
+- Users spend most of their day in light physical activity.  
+- Users differ greatly in daily step counts.  
+- Many users are inconsistent in their day-to-day steps.  
+- Activity peaks during the day and drops at night.  
+- Weekends show slightly different patterns than weekdays.
+
+Although the dataset is limited by timeframe and sample size, the dashboard provides a clear, interactive way to explore how sleep and activity relate to daily routines.
